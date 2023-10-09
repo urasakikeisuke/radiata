@@ -1,0 +1,220 @@
+@import "../styles/constants"
+@import "../styles/utils"
+
+.nav
+  min-width: 1000px
+  background-color: $color-bg-nav
+  color: $color-white
+  padding: 20px
+  top: 0
+  height: $header-height
+  width: 100%
+  z-index: 100
+  transition: background-color 0.3s ease
+
+  ul
+    width: 95%
+    list-style: none
+    list-style-type: none
+    margin: 0 auto
+    padding: 0
+    height: 100%
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+    .logo
+      font-size: 1.8rem
+      font-family: $font-family-logo
+      font-weight: 400
+      padding-right: 1.0rem
+
+    a
+      font-size: 1.0rem
+      margin-left: 10px
+      margin-right: 10px
+
+    li:last-child
+      width: 20%
+      margin-left: auto
+
+.container
+  min-width: 1000px
+  padding: 1.5rem 1.5rem
+
+.container_cpu
+  min-height: 150px
+  padding: 0.5rem 0
+  display: flex
+  align-items: center
+  justify-content: center
+
+.container_memory
+  min-height: 150px
+  padding: 0.5rem 0
+  display: flex
+  align-items: center
+  justify-content: center
+
+.container_gpu
+  min-height: 150px
+  padding: 0.5rem 0
+  display: flex
+  align-items: center
+  justify-content: center
+
+.container_process
+  min-height: 400px
+  margin-top: -35px
+  padding: 0rem 1rem
+
+.container_network
+  padding: 0.5rem 0
+
+.container_disk
+  padding: 0.5rem 0
+
+.grid
+  display: grid
+  gap: 20px
+  grid-template-columns: repeat(12, 1fr)
+
+.grid_cpu
+  display: grid
+  grid-template-columns: 3fr 1fr 1fr 1fr
+  width: 100%
+  height: 100%
+  justify-items: center
+  align-items: center
+
+.grid_memory
+  display: grid
+  grid-template-columns: 3fr 1fr 1fr 1fr
+  width: 100%
+  height: 100%
+  justify-items: center
+  align-items: center
+
+.grid_gpu
+  display: grid
+  grid-template-columns: 3fr 1fr 1fr 1fr
+  width: 100%
+  height: 100%
+  justify-items: center
+  align-items: center
+
+.grid_network
+  display: grid
+  grid-template-columns: 1fr 1fr
+
+.grid_disk
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+
+.box
+  position: relative
+  padding: 10px 10px
+  +magic-border(1px, $color-box-border, 0.15s, 0)
+  border-radius: 0
+  text-align: center
+  cursor: pointer
+  background-color: $color-bg-box
+
+  .box_header
+    background: transparent
+    color: $color-white
+    text-align: left
+    font-size: 1.0rem
+
+  .box_body
+    margin: 1px
+    padding: 1px
+
+.box_cpu
+  grid-column: 1 / 13
+
+.box_memory
+  grid-column: 1 / 13
+
+.box_gpu
+  grid-column: 1 / 13
+
+.box_process
+  grid-column: 1 / 13
+
+  \::-webkit-scrollbar
+    display: none
+
+  -ms-overflow-style: none
+  scrollbar-width: none
+
+.box_network
+  grid-column: 1 / 6
+
+.box_disk
+  grid-column: 6 / 13
+
+.fetching
+  ul
+    list-style: none
+    list-style-type: none
+    padding: 0
+    margin: 0
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+    text-align: center
+
+    h3
+      font-size: 1.35rem
+      margin: 0
+
+    p
+      font-size: 0.8rem
+      margin-top: 2px
+      margin-bottom: 2px
+      color: $color-dark-light
+
+  .piechart
+    .title_container
+      display: flex
+      justify-content: center
+      align-items: center
+      height: 100vh
+
+    .title
+      text-align: center
+
+.server_down_overlay
+  position: fixed
+  top: $header-height
+  left: 0
+  width: 100%
+  height: calc(100vh - $header-height)
+  background-color: rgba(0, 0, 0, 0.85)
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 1000
+
+  .server_down_content
+    color: $color-white
+    padding: 30px
+    max-height: 80vh
+    text-align: center
+
+    .server_down_title
+      font-size: 2.0rem
+      background-color: transparent
+
+    .server_down_body
+      font-size: 0.9rem
+      font-weight: 400
+      background-color: transparent
+
+    .server_down_image
+      position: "relative"
+      width: 500px
+      height: auto
+      z-index: -1
